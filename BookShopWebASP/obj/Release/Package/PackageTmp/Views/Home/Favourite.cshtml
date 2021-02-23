@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Favourite";
+    ViewBag.Layout = "~/View/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-dark">Favourite</h2>
+<hr />
+<div class="row" id="body">
+</div>
+@section scripts{
+    <script>
+        var currentPage = 1;
+        $(document).ready(function () { loadData(); $(window).scrollTop(10); $('[data-toggle="tooltip"]').tooltip(); });
+
+        //Load Data function
+        function loadData() {
+            $.ajax({
+                url: "/Home/FavouriteBook?Page=" + currentPage,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = document.getElementById("body").innerHTML;
+                    $.each(result, function (key, item) {
+                        html += '<a class="col-md-3 col-sm-6 text-dark text-decoration-none form-group" data-toggle="tooltip" title="' + item.DisplayName + '" href="/Home/ShowProduct?ProductID=' + item.Id + '">';
+                        html += '<div class="card">';
+                        html += '<div class="card-header">';
+                        html += '<img src="/Images/' + item.DisplayImage + '" class="img-fluid" />';
+                        html += '</div>';
+                        html += '<div class="card-body bg-light text-center" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">' + item.DisplayName + '</div>';
+                        html += '<div class="card-body bg-white text-center">';
+                        if (item.Discount != 0) {
+                            html += '<h6 class="d-inline text-dark"><del><i>$' + item.Price + ' VNĐ</i></del></h6>';
+                        }
+                        var totalPrice = item.Price * (100 - item.Discount) / 100;
+                        html += ' <h6 class="d-inline text-danger">$' + totalPrice + 'VNĐ</h6>';
+                        html += '</div></div></a>';
+                    });
+                    $('#body').html(html);
+                },
+                error: function (errormessage) {
+                    alert(errormessage.responseText);
+                }
+            });
+        }
+        $(document).scroll(function () {
+            if ($(document).height() - $(window).height() <= parseInt($(window).scrollTop()) + 10) {
+                currentPage += 1;
+                loadData();
+            }
+        });
+    </script>
+}

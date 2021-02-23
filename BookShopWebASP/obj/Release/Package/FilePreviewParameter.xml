@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="s" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Document\\Visual\ Studio\ 2013\\Projects\\BookShopWebASP\\BookShopWebASP\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^D:\\Document\\Visual\ Studio\ 2013\\Projects\\BookShopWebASP\\BookShopWebASP\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BookShopDatabaseEntities-Web.config Connection String" description="" value="metadata=res://*/Models.BookShopDB.csdl|res://*/Models.BookShopDB.ssdl|res://*/Models.BookShopDB.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=.\NGHIA;Initial Catalog=BookShopDatabase;Integrated Security=True;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Document\\Visual\ Studio\ 2013\\Projects\\BookShopWebASP\\BookShopWebASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BookShopDatabaseEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=.\NGHIA;Initial Catalog=BookShopDatabase;Integrated Security=True;Application Name=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="D:\\Document\\Visual\ Studio\ 2013\\Projects\\BookShopWebASP\\BookShopWebASP\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BookShopDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="BookShopDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Baskets" EntityType="BookShopDatabaseModel.Basket" />
+    <EntitySet Name="BasketInfoes" EntityType="BookShopDatabaseModel.BasketInfo" />
+    <EntitySet Name="Categories" EntityType="BookShopDatabaseModel.Category" />
+    <EntitySet Name="ImageDatas" EntityType="BookShopDatabaseModel.ImageData" />
+    <EntitySet Name="Inputs" EntityType="BookShopDatabaseModel.Input" />
+    <EntitySet Name="InputInfoes" EntityType="BookShopDatabaseModel.InputInfo" />
+    <EntitySet Name="Outputs" EntityType="BookShopDatabaseModel.Output" />
+    <EntitySet Name="OutputInfoes" EntityType="BookShopDatabaseModel.OutputInfo" />
+    <EntitySet Name="Products" EntityType="BookShopDatabaseModel.Product" />
+    <EntitySet Name="Units" EntityType="BookShopDatabaseModel.Unit" />
+    <EntitySet Name="UserAuthorities" EntityType="BookShopDatabaseModel.UserAuthority" />
+    <EntitySet Name="Users" EntityType="BookShopDatabaseModel.User" />
+    <AssociationSet Name="FK__Basket__IdCustom__4222D4EF" Association="BookShopDatabaseModel.FK__Basket__IdCustom__4222D4EF">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Basket" EntitySet="Baskets" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BasketInf__IdBas__44FF419A" Association="BookShopDatabaseModel.FK__BasketInf__IdBas__44FF419A">
+      <End Role="Basket" EntitySet="Baskets" />
+      <End Role="BasketInfo" EntitySet="BasketInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BasketInf__IdPro__45F365D3" Association="BookShopDatabaseModel.FK__BasketInf__IdPro__45F365D3">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="BasketInfo" EntitySet="BasketInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__IdCateg__30F848ED" Association="BookShopDatabaseModel.FK__Product__IdCateg__30F848ED">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__IdImage__300424B4" Association="BookShopDatabaseModel.FK__Product__IdImage__300424B4">
+      <End Role="ImageData" EntitySet="ImageDatas" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Input__IdProduct__34C8D9D1" Association="BookShopDatabaseModel.FK__Input__IdProduct__34C8D9D1">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Input" EntitySet="Inputs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InputInfo__IdInp__37A5467C" Association="BookShopDatabaseModel.FK__InputInfo__IdInp__37A5467C">
+      <End Role="Input" EntitySet="Inputs" />
+      <End Role="InputInfo" EntitySet="InputInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__InputInfo__IdSup__38996AB5" Association="BookShopDatabaseModel.FK__InputInfo__IdSup__38996AB5">
+      <End Role="User" EntitySet="Users" />
+      <End Role="InputInfo" EntitySet="InputInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Output__IdCustom__3B75D760" Association="BookShopDatabaseModel.FK__Output__IdCustom__3B75D760">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Output" EntitySet="Outputs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OutputInf__IdOut__3E52440B" Association="BookShopDatabaseModel.FK__OutputInf__IdOut__3E52440B">
+      <End Role="Output" EntitySet="Outputs" />
+      <End Role="OutputInfo" EntitySet="OutputInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OutputInf__IdPro__3F466844" Association="BookShopDatabaseModel.FK__OutputInf__IdPro__3F466844">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="OutputInfo" EntitySet="OutputInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__IdUnit__31EC6D26" Association="BookShopDatabaseModel.FK__Product__IdUnit__31EC6D26">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__IdUserAut__276EDEB3" Association="BookShopDatabaseModel.FK__Users__IdUserAut__276EDEB3">
+      <End Role="UserAuthority" EntitySet="UserAuthorities" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Basket">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdCustomer" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="BookShopDatabaseModel.FK__Basket__IdCustom__4222D4EF" FromRole="Basket" ToRole="User" />
+    <NavigationProperty Name="BasketInfoes" Relationship="BookShopDatabaseModel.FK__BasketInf__IdBas__44FF419A" FromRole="Basket" ToRole="BasketInfo" />
+  </EntityType>
+  <EntityType Name="BasketInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdBasket" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Count" Type="Int32" />
+    <NavigationProperty Name="Basket" Relationship="BookShopDatabaseModel.FK__BasketInf__IdBas__44FF419A" FromRole="BasketInfo" ToRole="Basket" />
+    <NavigationProperty Name="Product" Relationship="BookShopDatabaseModel.FK__BasketInf__IdPro__45F365D3" FromRole="BasketInfo" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="BookShopDatabaseModel.FK__Product__IdCateg__30F848ED" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="ImageData">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BaseData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="BookShopDatabaseModel.FK__Product__IdImage__300424B4" FromRole="ImageData" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Input">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="BookShopDatabaseModel.FK__Input__IdProduct__34C8D9D1" FromRole="Input" ToRole="Product" />
+    <NavigationProperty Name="InputInfoes" Relationship="BookShopDatabaseModel.FK__InputInfo__IdInp__37A5467C" FromRole="Input" ToRole="InputInfo" />
+  </EntityType>
+  <EntityType Name="InputInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdInput" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdSupplier" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateInput" Type="DateTime" Precision="3" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="InputPrice" Type="Double" />
+    <NavigationProperty Name="Input" Relationship="BookShopDatabaseModel.FK__InputInfo__IdInp__37A5467C" FromRole="InputInfo" ToRole="Input" />
+    <NavigationProperty Name="User" Relationship="BookShopDatabaseModel.FK__InputInfo__IdSup__38996AB5" FromRole="InputInfo" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Output">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdCustomer" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="BookShopDatabaseModel.FK__Output__IdCustom__3B75D760" FromRole="Output" ToRole="User" />
+    <NavigationProperty Name="OutputInfoes" Relationship="BookShopDatabaseModel.FK__OutputInf__IdOut__3E52440B" FromRole="Output" ToRole="OutputInfo" />
+  </EntityType>
+  <EntityType Name="OutputInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdOutput" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdProduct" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DateOutput" Type="DateTime" Precision="3" />
+    <Property Name="Count" Type="Int32" />
+    <Property Name="OutputPrice" Type="Double" />
+    <Property Name="IsCheckOut" Type="Int32" />
+    <Property Name="DateCheckOut" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Output" Relationship="BookShopDatabaseModel.FK__OutputInf__IdOut__3E52440B" FromRole="OutputInfo" ToRole="Output" />
+    <NavigationProperty Name="Product" Relationship="BookShopDatabaseModel.FK__OutputInf__IdPro__3F466844" FromRole="OutputInfo" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IdImageData" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="IdCategory" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="IdUnit" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BasketInfoes" Relationship="BookShopDatabaseModel.FK__BasketInf__IdPro__45F365D3" FromRole="Product" ToRole="BasketInfo" />
+    <NavigationProperty Name="Category" Relationship="BookShopDatabaseModel.FK__Product__IdCateg__30F848ED" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="ImageData" Relationship="BookShopDatabaseModel.FK__Product__IdImage__300424B4" FromRole="Product" ToRole="ImageData" />
+    <NavigationProperty Name="Inputs" Relationship="BookShopDatabaseModel.FK__Input__IdProduct__34C8D9D1" FromRole="Product" ToRole="Input" />
+    <NavigationProperty Name="OutputInfoes" Relationship="BookShopDatabaseModel.FK__OutputInf__IdPro__3F466844" FromRole="Product" ToRole="OutputInfo" />
+    <NavigationProperty Name="Unit" Relationship="BookShopDatabaseModel.FK__Product__IdUnit__31EC6D26" FromRole="Product" ToRole="Unit" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="BookShopDatabaseModel.FK__Product__IdUnit__31EC6D26" FromRole="Unit" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="UserAuthority">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="BookShopDatabaseModel.FK__Users__IdUserAut__276EDEB3" FromRole="UserAuthority" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FullName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birthday" Type="DateTime" Precision="0" />
+    <Property Name="Point" Type="Int32" />
+    <Property Name="IdUserAuthority" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Baskets" Relationship="BookShopDatabaseModel.FK__Basket__IdCustom__4222D4EF" FromRole="User" ToRole="Basket" />
+    <NavigationProperty Name="InputInfoes" Relationship="BookShopDatabaseModel.FK__InputInfo__IdSup__38996AB5" FromRole="User" ToRole="InputInfo" />
+    <NavigationProperty Name="Outputs" Relationship="BookShopDatabaseModel.FK__Output__IdCustom__3B75D760" FromRole="User" ToRole="Output" />
+    <NavigationProperty Name="UserAuthority" Relationship="BookShopDatabaseModel.FK__Users__IdUserAut__276EDEB3" FromRole="User" ToRole="UserAuthority" />
+  </EntityType>
+  <Association Name="FK__Basket__IdCustom__4222D4EF">
+    <End Type="BookShopDatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.Basket" Role="Basket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Basket">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BasketInf__IdBas__44FF419A">
+    <End Type="BookShopDatabaseModel.Basket" Role="Basket" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.BasketInfo" Role="BasketInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Basket">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasketInfo">
+        <PropertyRef Name="IdBasket" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BasketInf__IdPro__45F365D3">
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.BasketInfo" Role="BasketInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="BasketInfo">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__IdCateg__30F848ED">
+    <End Type="BookShopDatabaseModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__IdImage__300424B4">
+    <End Type="BookShopDatabaseModel.ImageData" Role="ImageData" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageData">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdImageData" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Input__IdProduct__34C8D9D1">
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.Input" Role="Input" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Input">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InputInfo__IdInp__37A5467C">
+    <End Type="BookShopDatabaseModel.Input" Role="Input" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.InputInfo" Role="InputInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Input">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InputInfo">
+        <PropertyRef Name="IdInput" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__InputInfo__IdSup__38996AB5">
+    <End Type="BookShopDatabaseModel.User" Role="User" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.InputInfo" Role="InputInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InputInfo">
+        <PropertyRef Name="IdSupplier" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Output__IdCustom__3B75D760">
+    <End Type="BookShopDatabaseModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="BookShopDatabaseModel.Output" Role="Output" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Output">
+        <PropertyRef Name="IdCustomer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OutputInf__IdOut__3E52440B">
+    <End Type="BookShopDatabaseModel.Output" Role="Output" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.OutputInfo" Role="OutputInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Output">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutputInfo">
+        <PropertyRef Name="IdOutput" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OutputInf__IdPro__3F466844">
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.OutputInfo" Role="OutputInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="OutputInfo">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__IdUnit__31EC6D26">
+    <End Type="BookShopDatabaseModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="IdUnit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__IdUserAut__276EDEB3">
+    <End Type="BookShopDatabaseModel.UserAuthority" Role="UserAuthority" Multiplicity="1" />
+    <End Type="BookShopDatabaseModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAuthority">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="IdUserAuthority" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

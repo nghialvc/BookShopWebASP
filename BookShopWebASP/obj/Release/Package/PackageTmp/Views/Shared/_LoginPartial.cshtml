@@ -1,0 +1,18 @@
+﻿@if (Session["UserID"] != null)
+{
+    <ul class="nav navbar-nav navbar-right col-md-3">
+        <li class="nav-item">
+            @Html.ActionLink(Session["UserName"].ToString(), "Manage", "Users", null, new { @class = "nav-link active" })
+        </li>
+        <li class="nav-item">
+            @Html.ActionLink("Log out", "Logout", "Users", null, new { @class = "nav-link active" })
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right col-md-3">
+        <li class="nav-item">@Html.ActionLink("Register", "Register", "Users", null, new { @class = "nav-link active" })</li>
+        <li class="nav-item">@Html.ActionLink("Log in", "Login", "Users", new { @returnUrl = @Url.Action("Index", "Home") }, new { @class = "nav-link active" })</li>
+    </ul>
+}

@@ -1,0 +1,37 @@
+﻿@model BookShopWebASP.Models.Output
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-dark">History</h2>
+<hr />
+@if (Model != null && Model.OutputInfoes.Count > 0)
+{
+    foreach (var item in Model.OutputInfoes)
+    {
+        <div class="form-group card form-row shadow-sm">
+            <div class="row container-fluid">
+                <img class="img-fluid col-md-2 card-header" src="@Url.Action("ShowImage", "Image", new { ImageID = item.Product.IdImageData })" />
+                <div class="card-body col-md-10">
+                    <h2 class="text-success">@item.Product.ImageData.DisplayName</h2>
+                    <h5 class="text-primary">Count: @item.Count</h5>
+                    <h5 class="text-danger">Price: @Convert.ToDecimal(@item.OutputPrice.Value).ToString("C0") VND</h5>
+                    <h5 class="text-dark">Bought at: @item.DateOutput.Value</h5>
+                    @if (item.IsCheckOut.Value == 1)
+                    {
+                        <h5 class="text-dark">Checked out at: @item.DateCheckOut</h5>
+                    }
+                    else
+                    {
+                        <h5>Unchecked out</h5>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h2 class="text-danger">You haven't bought anything.</h2>
+}

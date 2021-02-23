@@ -1,0 +1,110 @@
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.dll.config
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.pdb
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Antlr3.Runtime.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.SqlServer.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Core.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Owin.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Host.SystemWeb.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Cookies.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Facebook.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Google.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.OAuth.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Twitter.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Web.Infrastructure.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Newtonsoft.Json.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Owin.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Helpers.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Mvc.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Optimization.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Razor.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Deployment.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Razor.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\WebGrease.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Helpers.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Mvc.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Optimization.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Razor.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Deployment.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Razor.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Newtonsoft.Json.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Antlr3.Runtime.pdb
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.SqlServer.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Core.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Owin.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Host.SystemWeb.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Facebook.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Cookies.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.OAuth.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Google.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Twitter.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.csprojResolveAssemblyReference.cache
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.dll
+c:\users\admin\onedrive\tài liệu\visual studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.pdb
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.dll.config
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\BookShopWebASP.pdb
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Antlr3.Runtime.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.SqlServer.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Google.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Web.Infrastructure.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Newtonsoft.Json.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Owin.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Helpers.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Mvc.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Optimization.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Razor.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Deployment.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Razor.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\WebGrease.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Helpers.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Mvc.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Optimization.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.Razor.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Deployment.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\System.Web.WebPages.Razor.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Newtonsoft.Json.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Antlr3.Runtime.pdb
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\EntityFramework.SqlServer.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Google.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.csprojResolveAssemblyReference.cache
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.dll
+D:\Document\Visual Studio 2013\Projects\BookShopWebASP\BookShopWebASP\obj\Debug\BookShopWebASP.pdb

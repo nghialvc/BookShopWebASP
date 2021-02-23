@@ -1,0 +1,96 @@
+﻿@model BookShopWebASP.Models.ImageModel
+@{
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+<div class="container-fluid card form-group">
+    <div class="row justify-content-center">
+        @using (@Html.BeginForm("ImageData", "Admin", new { Page = 1, ModelID = ViewBag.ModelId }, FormMethod.Post, new { enctype = "multipart/form-data", role = "form", @class = "container-fluid" }))
+        {
+            <h2 class="text-dark text-center">ImageData</h2>
+            <hr />
+            if (ViewBag.ModelId != null)
+            {
+                <div class="form-row form-group">
+                    <h6 class="col-md-4">Id</h6>
+                    <h6 class="col-md-8 form-control valid">@ViewBag.ModelId</h6>
+                </div>
+                <div class="form-row form-group">
+                    <h6 class="col-md-4">Image</h6>
+                    <img class="col-md-8 img-fluid" src="@Url.Action("ShowImage", "Image", new { ImageID = ViewBag.ModelId })" />
+                </div>
+            }
+            @Html.AntiForgeryToken()
+            <input type="hidden" id="Method" name="Method" value="Add" />
+            <div class="form-group form-row">
+                <h6 class="col-md-4">Choose Image</h6>
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.FileAttach, new { type = "file" })
+                    @Html.ValidationMessageFor(m => m.FileAttach)
+                </div>
+            </div>
+            <div class="card-header row justify-content-center">
+                <div class="form-group justify-content-center col-3">
+                    <input type="submit" id="Add" value="Add" class="col-md-8 btn btn-success" />
+                </div>
+                @if (ViewBag.ModelId != null)
+                {
+                    <div class="form-group justify-content-center col-3">
+                        <input type="submit" id="Update" value="Update" class="col-md-8 btn btn-success" />
+                    </div>
+                    <div class="form-group justify-content-center col-3">
+                        <input type="submit" id="Delete" value="Delete" class="col-md-8 btn btn-success" />
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (ViewBag.ModelId == null)
+{
+    foreach (var item in Model.Images)
+    {
+        <div class="card shadow-sm form-group">
+            <div class="card-body">
+                <div><h6 class="text-dark d-inline-block">Id :</h6> <h6 class="text-primary d-inline-block">@item.Id</h6></div>
+                <div class="row"><h6 class="text-dark col-2">Image :</h6> <img class="col-10 img-fluid" src="@Url.Action("ShowImage", "Image", new { ImageID = item.Id })" /></div>
+            </div>
+            <div class="container-fluid">
+                <a class="form-group col-md-4 btn btn-success" href="@Url.Action("ImageData", "Admin", new { Page = 1, ModelId = item.Id })">View</a>
+            </div>
+        </div>
+    }
+    <div class="form-row justify-content-center">
+        @if ((int)ViewBag.Page > 1)
+        {
+            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = 1, TableName = ViewBag.TableName })">&laquo;</a>
+        }
+        @if ((int)ViewBag.MaxPage > 0)
+        {
+            for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+            {
+                <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = i, TableName = ViewBag.TableName })">@i</a>
+            }
+        }
+        @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+        {
+            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = @ViewBag.MaxPage, TableName = ViewBag.TableName })">&raquo;</a>
+        }
+    </div>
+
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#Add").click(function () {
+                $("#Method").val("Add");
+            });
+            $("#Update").click(function () {
+                $("#Method").val("Update");
+            });
+            $("#Delete").click(function () {
+                $("#Method").val("Delete");
+            });
+        });
+    </script>
+}

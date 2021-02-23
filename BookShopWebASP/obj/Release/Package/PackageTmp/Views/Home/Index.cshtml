@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    ViewBag.Layout = "~/View/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron row" style="background-color: #17a2c9;">
+    <img class="img-fluid col-md-4" src="@Url.Content("/Images/logo.png")" />
+    <div class="col-md-8">
+        <h1 class="text-light">Book Shop</h1>
+        <h5 class="lead text-white">This website sell any books that you need.</h5>
+        <h5 class="lead text-white">Choose your favourite books in our website.</h5>
+    </div>
+</div>
+<div class="row" id="body">
+</div>
+@section scripts{
+    <script>
+        var currentPage = 1;
+        var loading = false;
+        $(document).ready(function () { loadData(); $(window).scrollTop(10); $('[data-toggle="tooltip"]').tooltip(); });
+
+        //Load Data function
+        function loadData() {
+            loading = true;
+            $.ajax({
+                url: "/Home/IndexBook?Page=" + currentPage,
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                success: function (result) {
+                    var html = document.getElementById("body").innerHTML;
+                    $.each(result, function (key, item) {
+                        html += '<a class="col-md-3 col-sm-6 text-dark text-decoration-none form-group" data-toggle="tooltip" title="' + item.DisplayName + '" href="/Home/ShowProduct?ProductID=' + item.Id + '">';
+                        html += '<div class="card">';
+                        html += '<div class="card-header">';
+                        html += '<img src="/Images/' + item.DisplayImage + '" class="img-fluid" />';
+                        html += '</div>';
+                        html += '<div class="card-body bg-light text-center" style="text-overflow:ellipsis;overflow:hidden;white-space:nowrap;">' + item.DisplayName + '</div>';
+                        html += '<div class="card-body bg-white text-center">';
+                        if (item.Discount != 0) {
+                            html += '<h6 class="d-inline text-dark"><del><i>$' + item.Price + ' VNĐ</i></del></h6>';
+                        }
+                        var totalPrice = item.Price * (100 - item.Discount) / 100;
+                        html += ' <h6 class="d-inline text-danger">$' + totalPrice + 'VNĐ</h6>';
+                        html += '</div></div></a>';
+                    });
+                    $('#body').html(html);
+                },
+                error: function (errormessage) {
+                    console.log(errormessage.responseText);
+                }
+            });
+            loading = false;
+        }
+        $(document).scroll(function () {
+            if ($(document).height() - $(window).height() <= parseInt($(window).scrollTop() + 100)) {
+                currentPage += 1;
+                loadData();
+            }
+        });
+    </script>
+}

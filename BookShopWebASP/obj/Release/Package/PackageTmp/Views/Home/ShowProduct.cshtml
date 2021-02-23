@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = Model.DisplayName;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="card shadow-sm col-md-4 bg-light">
+        <div class="card-header">
+            <img class="img-fluid" src="@Url.Content("/Images/" + Model.DisplayImage)" />
+        </div>
+        <div class="card-body text-center">
+            @Model.DisplayName
+        </div>
+    </div>
+    <div class="col-md-8">
+        <h2 class="text-success font-weight-bold">@Model.DisplayName</h2>
+        <div class="page-link shadow-sm bg-light form-group">
+            @if (Model.Discount != 0)
+            {
+                <h5 class="d-inline text-dark"><del><i>@Convert.ToDecimal(Model.Price).ToString("C0") VND</i></del></h5>
+            }
+            @{var totalPrice = Model.Price * (100 - Model.Discount) / 100;}
+            <h3 class="d-inline text-danger">@Convert.ToDecimal(@totalPrice).ToString("C0") VND</h3>
+            @if (Model.Discount != 0)
+            {
+                <h6 class="d-inline text-white bg-danger align-top">&nbsp; -@Model.Discount% &nbsp;</h6>
+            }
+        </div>
+        <div class="page-link shadow-sm form-group bg-light">
+            <h5 class="text-dark d-inline">Category: </h5> <h5 class="text-success d-inline">@Model.Category.DisplayName</h5>
+        </div>
+        <div class="text-black-50 jumbotron form-group bg-light shadow-sm page-link">
+            <h5 class="text-dark">@Model.Descriptions</h5>
+        </div>
+        <div class="form-inline form-group form-row">
+            <a class="row offset-1 col-4 text-decoration-none" href="@Url.Action("Buy", "Home", new { @ProductID = Model.Id, @Count = 1, @FromBasket = false })">
+                <div class="btn btn-success form-control col-12">Buy</div>
+            </a>
+            <a class="row offset-2 col-4 text-decoration-none" href="@Url.Action("AddToBasket", "Home", new { @ProductID = Model.Id})">
+                <div class="btn btn-info form-control col-12">Add to basket</div>
+            </a>
+        </div>
+    </div>
+</div>

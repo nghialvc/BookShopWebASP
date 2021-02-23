@@ -1,0 +1,166 @@
+﻿@{
+    ViewBag.Title = "Staff";
+    Layout = "~/Views/Staff/StaffLayout.cshtml";
+}
+@if (@Model != null)
+{
+    int number = ((int)ViewBag.Page - 1) * BookShopWebASP.Controllers.StaffController.PageLength + 1;
+    switch (((BookShopWebASP.Controllers.StaffData)Model).Option)
+    {
+        case "CheckedOut":
+            foreach (var item in (List<BookShopWebASP.Models.OutputInfo>)((BookShopWebASP.Controllers.StaffData)@Model).Data)
+            {
+                <div class="card form-group">
+                    <div class="card-header"><h4 class="text-danger bg-light d-inline form-control font-weight-bold">@number</h4> <h6 class="text-dark d-inline">@item.Product.DisplayName</h6></div>
+                    <div class="card-body">
+                        <h6>Customer: @item.Output.User.FullName</h6>
+                        <h6>Count: @item.Count</h6>
+                        <h6>Bought at: @item.DateOutput</h6>
+                        <h6>Checked out at: @item.DateCheckOut</h6>
+                        <a class="btn btn-primary col-3 form-group" href="@Url.Action("Remove", "Staff", new { OutputInfoID = item.Id, ReturnUrl = Request.Url.OriginalString })">Remove</a>
+                    </div>
+                </div>
+                number++;
+            }
+            <div class="form-row justify-content-center">
+                @if ((int)ViewBag.Page > 1)
+                {
+                    <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCheckedOut", "Staff", new { @Page = 1 })">&laquo;</a>
+                }
+                @if ((int)ViewBag.MaxPage > 0)
+                {
+                    for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+                    {
+                        <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCheckedOut", "Staff", new { @Page = i })">@i</a>
+                    }
+                }
+                @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+                {
+                    <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCheckedOut", "Staff", new { @Page = (int)ViewBag.MaxPage})">&raquo;</a>
+                }
+            </div>
+                break;
+        case "UnCheckedOut":
+                foreach (var item in (List<BookShopWebASP.Models.OutputInfo>)((BookShopWebASP.Controllers.StaffData)@Model).Data)
+                {
+                    <div class="card form-group">
+                        <div class="card-header"><h4 class="text-danger bg-light d-inline form-control font-weight-bold">@number</h4> <h6 class="text-dark d-inline">@item.Product.DisplayName</h6></div>
+                        <div class="card-body">
+                            <h6>Customer: @item.Output.User.FullName</h6>
+                            <h6>Count: @item.Count</h6>
+                            <h6>Bought at: @item.DateOutput</h6>
+                            <div>
+                                <a class="btn btn-success col-3 form-group" href="@Url.Action("CheckOut", "Staff", new { OutputInfoID = item.Id, ReturnUrl = Request.Url.OriginalString })">Check out</a>
+                                <a class="btn btn-primary col-3 form-group" href="@Url.Action("Remove", "Staff", new { OutputInfoID = item.Id, ReturnUrl = Request.Url.OriginalString })">Remove</a>
+                            </div>
+                        </div>
+                    </div>
+                    number++;
+                }
+                <div class="form-row justify-content-center">
+                    @if ((int)ViewBag.Page > 1)
+                    {
+                        <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowUnCheckedOut", "Staff", new { @Page = 1 })">&laquo;</a>
+                    }
+                    @if ((int)ViewBag.MaxPage > 0)
+                    {
+                        for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+                        {
+                            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowUnCheckedOut", "Staff", new { @Page = i })">@i</a>
+                        }
+                    }
+                    @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+                    {
+                        <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowUnCheckedOut", "Staff", new { @Page = (int)ViewBag.MaxPage })">&raquo;</a>
+                    }
+                </div>
+                    break;
+        case "Product":
+                    foreach (var item in (List<BookShopWebASP.Models.Product>)((BookShopWebASP.Controllers.StaffData)@Model).Data)
+                    {
+                        int inputcount = @item.Inputs.Sum(x => x.InputInfoes.Sum(y => y.Count)).Value;
+                        int outputcount = @item.OutputInfoes.Sum(x => x.Count).Value;
+                        int remaincount = inputcount - outputcount;
+                        <div class="card form-group">
+                            <div class="card-header"><h4 class="text-danger bg-light d-inline form-control font-weight-bold">@number</h4> <h6 class="text-dark d-inline">@item.DisplayName</h6></div>
+                            <div class="card-body">
+                                <h6>ID: @item.Id</h6>
+                                <h6>Category: @item.Category.DisplayName</h6>
+                                <h6 class="text-danger">Input Count: @inputcount @item.Unit.DisplayName</h6>
+                                <h6 class="text-primary">Output Count: @outputcount @item.Unit.DisplayName</h6>
+                                <h6 class="text-success">Remain Count: @remaincount @item.Unit.DisplayName</h6>
+                            </div>
+                        </div>
+                        number++;
+                    }
+                    <div class="form-row justify-content-center">
+                        @if ((int)ViewBag.Page > 1)
+                        {
+                            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowProduct", "Staff", new { @Page = 1 })">&laquo;</a>
+                        }
+                        @if ((int)ViewBag.MaxPage > 0)
+                        {
+                            for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+                            {
+                                <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowProduct", "Staff", new { @Page = i })">@i</a>
+                            }
+                        }
+                        @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+                        {
+                            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowProduct", "Staff", new { @Page = (int)ViewBag.MaxPage })">&raquo;</a>
+                        }
+                    </div>
+                        break;
+        case "Customer":
+                        foreach (var item in (List<BookShopWebASP.Models.User>)((BookShopWebASP.Controllers.StaffData)@Model).Data)
+                        {
+                            <div class="card form-group">
+                                <div class="card-header"><h4 class="text-danger bg-light d-inline form-control font-weight-bold">@number</h4> <h6 class="text-dark d-inline">@item.FullName</h6></div>
+                                <div class="card-body">
+                                    <h6 class="text-danger">ID: @item.Id</h6>
+                                    <h6>Phone: @item.Phone</h6>
+                                    <h6>Address: @item.Address</h6>
+                                    <h6>Email: @item.Email</h6>
+                                    <div>
+                                        <h6 class="d-inline">Authority:</h6>
+                                        @switch (item.UserAuthority.DisplayName)
+                                        {
+                                            case "Admin":
+                                                <h6 class="text-danger d-inline">@item.UserAuthority.DisplayName</h6>
+                                                break;
+                                            case "Staff":
+                                            <h6 class="text-warning d-inline">@item.UserAuthority.DisplayName</h6>
+                                                break;
+                                            case "Supplier":
+                                            <h6 class="text-primary d-inline">@item.UserAuthority.DisplayName</h6>
+                                                break;
+                                            case "Customer":
+                                            <h6 class="text-info d-inline">@item.UserAuthority.DisplayName</h6>
+                                                break;
+                                        }
+                                    </div>
+                                    <a class="btn btn-success col-3 form-group" href="@Url.Action("ViewUser", "Staff", new { UserID = item.Id})">View</a>
+                                </div>
+                            </div>
+                            number++;
+                        }
+                        <div class="form-row justify-content-center">
+                            @if ((int)ViewBag.Page > 1)
+                            {
+                                <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCustomer", "Staff", new { @Page = 1 })">&laquo;</a>
+                            }
+                            @if ((int)ViewBag.MaxPage > 0)
+                            {
+                                for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+                                {
+                                    <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCustomer", "Staff", new { @Page = i })">@i</a>
+                                }
+                            }
+                            @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+                            {
+                                <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ShowCustomer", "Staff", new { @Page = (int)ViewBag.MaxPage })">&raquo;</a>
+                            }
+                        </div>
+                            break;
+    }
+}

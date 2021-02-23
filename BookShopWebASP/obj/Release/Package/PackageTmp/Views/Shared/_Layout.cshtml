@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top border-dark" style="border-width:2px;border-color:black;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img class="img-fluid" style="max-height:50px;" src="@Url.Content("/Images/logo.png")" />
+                </a>
+            </div>
+            <div class="navbar-collapse collapse row" id="collapsibleNavbar">
+                <ul class="nav navbar-nav col-md-9">
+                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link active" })</li>
+                    <li class="nav-item">@Html.ActionLink("Favourite Books", "Favourite", "Home", null, new { @class = "nav-link active" })</li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle text-decoration-none nav-link active" data-toggle="dropdown" href="#">Categories</a>
+                        <ul class="dropdown-menu bg-info">
+                            @foreach (var item in BookShopWebASP.Controllers.DataProvider.Instance.DataBase.Categories.ToList())
+                            {
+                                <li class="nav-link"><a class="text-decoration-none text-light" href="@Url.Action("Category", "Home", new { CategoryName = @item.DisplayName })">@item.DisplayName</a></li>
+                            }
+                        </ul>
+                    </li>
+                    @{
+                        if (Session["UserAuthority"] != null)
+                        {
+                            <li class="nav-item">@Html.ActionLink("Your Basket", "Basket", "Home", null, new { @class = "nav-link active" })</li>
+                            <li class="nav-item">@Html.ActionLink("History", "History", "Home", null, new { @class = "nav-link active" })</li>
+                            if ("Admin" == Session["UserAuthority"].ToString())
+                            {
+                                <li class="nav-item">@Html.ActionLink("Admin", "Index", "Admin", null, new { @class = "nav-link active" })</li>
+                                <li class="nav-item">@Html.ActionLink("Staff", "Index", "Staff", null, new { @class = "nav-link active" })</li>
+                            }
+                            else if ("Supplier" == Session["UserAuthority"].ToString())
+                            {
+                                <li class="nav-item">@Html.ActionLink("Supplier", "Index", "Supplier", null, new { @class = "nav-link active" })</li>
+                            }
+                            else if ("Staff" == Session["UserAuthority"].ToString())
+                            {
+                                <li class="nav-item">@Html.ActionLink("Staff", "Index", "Staff", null, new { @class = "nav-link active" })</li>
+                            }
+                        }
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        <hr />
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - NghiaTra Company.</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

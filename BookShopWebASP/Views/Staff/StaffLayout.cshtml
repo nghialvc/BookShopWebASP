@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Staff";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-dark">Staff</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4 card bg-light form-group" style="height:300px;">
+        <h2 class="card-title text-center form-group">Options</h2>
+        @Html.ActionLink("Checked out", "ShowCheckedOut", "Staff", new { Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+        @Html.ActionLink("Unchecked out", "ShowUnCheckedOut", "Staff", new { Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+        @Html.ActionLink("Products", "ShowProduct", "Staff", new { @Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+        @Html.ActionLink("Customers", "ShowCustomer", "Staff", new { @Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+    </div>
+    <div class="col-md-8 form-group">
+        @RenderBody()
+    </div>
+</div>

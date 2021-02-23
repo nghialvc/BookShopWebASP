@@ -1,0 +1,48 @@
+﻿@model BookShopWebASP.Models.Basket
+@{
+    ViewBag.Title = "Basket";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-dark">Basket</h2>
+<hr />
+@if (Model != null)
+{
+    foreach (var item in Model.BasketInfoes)
+    {
+        <div class="form-group card form-row shadow-sm">
+            <div class="row container-fluid">
+                <img class="img-fluid col-md-3 card-header" src="@Url.Action("ShowImage", "Image", new {ImageID= item.Product.IdImageData })"   />
+                <div class="card-body col-md-9">
+                    <h2 class="text-success">@item.Product.DisplayName</h2>
+                    <h5 class="text-primary">Count: @item.Count</h5>
+                    <div class="page-link shadow-sm bg-light">
+                        @{var totalprice = item.Product.Price * (100 - item.Product.Discount) / 100;}
+                        @if (item.Product.Discount != 0)
+                        {
+                            <h5 class="d-inline text-dark"><del><i>@Convert.ToDecimal(item.Product.Price).ToString("C0") VND</i></del></h5>
+                        }
+                        @{var totalPrice = item.Product.Price * (100 - item.Product.Discount) / 100;}
+                        <h3 class="d-inline text-danger">@Convert.ToDecimal(@totalPrice).ToString("C0") VND</h3>
+                        @if (item.Product.Discount != 0)
+                        {
+                            <h6 class="d-inline text-white bg-danger align-top">&nbsp; -@item.Product.Discount% &nbsp;</h6>
+                        }
+                    </div>
+                    <div class="form-inline form-group form-row">
+                        <a class="row card-body offset-1 col-4 text-decoration-none" href="@Url.Action("Buy", "Home", new { @ProductID = item.IdProduct, @Count = item.Count, @FromBasket = true })">
+                            <div class="btn btn-success form-control col-12">Buy</div>
+                        </a>
+                        <a class="row card-body offset-2 col-4 text-decoration-none" href="@Url.Action("RemoveFromBasket", "Home", new { @ProductID = item.IdProduct})">
+                            <div class="btn btn-info form-control col-12">Remove</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <h2 class="text-danger">Your basket is empty.</h2>
+}

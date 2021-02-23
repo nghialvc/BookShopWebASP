@@ -1,0 +1,40 @@
+﻿@model BookShopWebASP.Models.Product
+@{
+    ViewBag.Title = "Product";
+    Layout = "~/Views/Supplier/SupplierLayout.cshtml";
+}
+@if (Model != null)
+{
+    int inputcount = @Model.Inputs.Sum(x => x.InputInfoes.Sum(y => y.Count)).Value;
+    int outputcount = @Model.OutputInfoes.Sum(x => x.Count).Value;
+    int remaincount = inputcount - outputcount;
+
+    <div class="card form-group">
+        <h5 class="card-header text-success bg-light font-weight-bold">@Model.DisplayName</h5>
+        <div class="card-body">
+            <h6 class="text-danger">ID: @Model.Id</h6>
+            <h6 class="text-primary">Category: @Model.Category.DisplayName</h6>
+            <h6 class="text-dark">Input Count: @inputcount @Model.Unit.DisplayName</h6>
+            <h6 class="text-dark">Output Count: @outputcount @Model.Unit.DisplayName</h6>
+            <h6 class="text-warning">Remain Count: @remaincount @Model.Unit.DisplayName</h6>
+        </div>
+    </div>
+    <h3 class="text-dark text-center form-control bg-light">Inputs</h3>
+    <div style="overflow-y:scroll;overflow-x:hidden;max-height:500px;">
+        @if (Model.Inputs.Count > 0)
+        {
+            foreach (var item in Model.Inputs.SingleOrDefault().InputInfoes)
+            {
+                <div class="form-group card shadow-sm">
+                    <h5 class="card-header text-danger bg-light font-weight-bold">ID: @item.Id</h5>
+                    <div class="card-body">
+                        <h6>Input at: @item.DateInput</h6>
+                        <h6>Count: @item.Count @Model.Unit.DisplayName</h6>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+}
+
+

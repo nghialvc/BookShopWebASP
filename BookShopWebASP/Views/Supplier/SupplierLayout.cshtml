@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Supplier";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-dark">Supplier</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4 card bg-light form-group" style="height:300px;">
+        <h2 class="card-title text-center form-group">Options</h2>
+        @Html.ActionLink("Inputs", "ShowInput", "Supplier", new { Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+        @Html.ActionLink("Products", "ShowProduct", "Supplier", new { @Page = 1 }, new { @class = "btn btn-info card-title form-group text-decoration-none" })
+    </div>
+    <div class="col-md-8 form-group">
+        @RenderBody()
+    </div>
+</div>

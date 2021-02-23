@@ -1,0 +1,74 @@
+﻿@model BookShopWebASP.Models.ManageModel
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    <section id="manageForm">
+        @using (Html.BeginForm("Manage", "Users", null, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <h1 class="text-dark text-center"><b>Manage Account</b></h1>
+            <hr />
+            @Html.ValidationSummary(true)
+            <div class="form-group form-row">
+                @Html.Label("UserName", new { @class = "col-md-4" })
+                <div class="col-md-8 text-left">
+                    @Html.Label(Session["UserName"].ToString(), new { @class = "control-label" })
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.FullName, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.FullName, new { @class = "form-control", @placeholder = "Example: Nghia Dep Trai", @text = Model.FullName })
+                    @Html.ValidationMessageFor(m => m.FullName)
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Example: nghiadeptrai@gmail.com", @text = Model.Email })
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.Address, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Example: 210 Man Thien, Quan 9, HCM", @text = Model.Address })
+                    @Html.ValidationMessageFor(m => m.Address)
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.Phone, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Phone, new { @class = "form-control", @placeholder = "Example: 0987654321", @text = Model.Phone })
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.Birthday, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.TextBoxFor(m => m.Birthday, new { @class = "form-control", @placeholder = "mm/dd/yyyy", @text = Model.Birthday })
+                    @Html.ValidationMessageFor(m => m.Birthday)
+                </div>
+            </div>
+            <div class="form-group form-row">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-4" })
+                <div class="col-md-8">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+            <div class="form-group form-row justify-content-center">
+                <input type="submit" value="Update" class="col-md-8 btn btn-success" />
+            </div>
+            <div class="form-group form-row justify-content-center">
+                @Html.ActionLink("Change Password", "ChangePassword", "Users", new { @class="text-decoration-none"})
+            </div>
+        }
+    </section>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58871ce7720b4b1faa6c1456d40c24ab" Name="Diagram1">
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Basket" Width="1.5" PointX="3" PointY="12" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.BasketInfo" Width="1.5" PointX="5.25" PointY="4.75" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Category" Width="1.5" PointX="0.75" PointY="5.125" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.ImageData" Width="1.5" PointX="0.75" PointY="8" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Input" Width="1.5" PointX="5.25" PointY="11.625" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.InputInfo" Width="1.5" PointX="7.5" PointY="11.25" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Output" Width="1.5" PointX="6" PointY="2" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.OutputInfo" Width="1.5" PointX="8.25" PointY="4.375" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Product" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.Unit" Width="1.5" PointX="0.75" PointY="2.75" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.UserAuthority" Width="1.5" PointX="1.5" PointY="16.125" />
+        <EntityTypeShape EntityType="BookShopDatabaseModel.User" Width="1.5" PointX="0.75" PointY="11" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Basket__IdCustom__4222D4EF" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__BasketInf__IdBas__44FF419A" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__BasketInf__IdPro__45F365D3" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Product__IdCateg__30F848ED" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Product__IdImage__300424B4" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Input__IdProduct__34C8D9D1" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__InputInfo__IdInp__37A5467C" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__InputInfo__IdSup__38996AB5" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Output__IdCustom__3B75D760" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__OutputInf__IdOut__3E52440B" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__OutputInf__IdPro__3F466844" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Product__IdUnit__31EC6D26" />
+        <AssociationConnector Association="BookShopDatabaseModel.FK__Users__IdUserAut__276EDEB3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

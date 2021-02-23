@@ -1,0 +1,66 @@
+﻿@model BookShopWebASP.Models.User
+@{
+    ViewBag.Title = "User";
+    Layout = "~/Views/Staff/StaffLayout.cshtml";
+}
+
+<div class="card form-group">
+    <h5 class="card-header text-success bg-light font-weight-bold">@Model.FullName</h5>
+    <div class="card-body">
+        <h6 class="text-danger">ID: @Model.Id</h6>
+        <h6>Phone: @Model.Phone</h6>
+        <h6>Address: @Model.Address</h6>
+        <h6>Email: @Model.Email</h6>
+        <h6>Point: @Model.Point</h6>
+        <div>
+            <h6 class="d-inline">Authority:</h6>
+            @switch (Model.UserAuthority.DisplayName)
+            {
+                case "Admin":
+                    <h6 class="text-danger d-inline">@Model.UserAuthority.DisplayName</h6>
+                    break;
+                case "Staff":
+                <h6 class="text-warning d-inline">@Model.UserAuthority.DisplayName</h6>
+                    break;
+                case "Supplier":
+                <h6 class="text-primary d-inline">@Model.UserAuthority.DisplayName</h6>
+                    break;
+                case "Customer":
+                <h6 class="text-info d-inline">@Model.UserAuthority.DisplayName</h6>
+                    break;
+            }
+        </div>
+    </div>
+</div>
+<h3 class="text-dark text-center form-control bg-light">History</h3>
+<div style="overflow-y:scroll;overflow-x:hidden;max-height:500px;">
+    @if (Model.Outputs.Count > 0)
+    {
+        foreach (var item in Model.Outputs.SingleOrDefault().OutputInfoes)
+        {
+            <div class="form-group card form-row shadow-sm">
+                <div class="row container-fluid">
+                    <img class="img-fluid col-md-3 card-header" src="@Url.Content("/Images/"+item.Product.ImageData.DisplayName)" />
+                    <div class="card-body col-md-9">
+                        <h2 class="text-success">@item.Product.DisplayName</h2>
+                        <h5 class="text-primary">Count: @item.Count</h5>
+                        <h5 class="text-danger">Price: @Convert.ToDecimal(@item.OutputPrice.Value).ToString("C0") VND</h5>
+                        <h5 class="text-dark">Bought at: @item.DateOutput.Value</h5>
+                        @if (item.IsCheckOut == 1)
+                        {
+                            <h5 class="text-dark">Checked out at @item.DateCheckOut</h5>
+                        }
+                        else
+                        {
+                            <h5>Unchecked out</h5>
+                            <a class="btn btn-success col-4" href="@Url.Action("CheckOut", "Staff", new { OutputInfoID = item.Id, ReturnUrl = Request.Url.OriginalString })">Check out</a>
+                        }
+                        <a class="btn btn-primary col-4" href="@Url.Action("Remove", "Staff", new { OutputInfoID = item.Id, ReturnUrl = Request.Url.OriginalString })">Remove</a>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+

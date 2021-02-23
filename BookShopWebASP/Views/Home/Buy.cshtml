@@ -1,0 +1,59 @@
+﻿@model BookShopWebASP.Models.BuyModel
+@{
+    ViewBag.Title = "Buy";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-center">
+    @if (ViewBag.Bought == null)
+    {
+        <section id="manageForm">
+            @using (Html.BeginForm("Buy", "Home", new { @ProductID = @Model.ProductID, @Count = @Model.Count, @FromBasket = @Model.FromBasket }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <h1 class="text-info text-center"><b>Buy Product</b></h1>
+                <hr />
+                @Html.ValidationSummary(true)
+                <div class="form-group form-row">
+                    <div class="col-md-4">Full Name</div>
+                    <div class="col-md-8">@Model.FullName</div>
+                    @Html.HiddenFor(m => m.FullName)
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-md-4">Product</div>
+                    <div class="col-md-8">@Model.ProductDisplayName</div>
+                    @Html.HiddenFor(m=>m.ProductDisplayName)
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-md-4">Price</div>
+                    <div class="col-md-8">@Model.ProductPrice</div>
+                    @Html.HiddenFor(m=>m.ProductPrice)
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-md-4">Count</div>
+                    <div class="col-md-8">@Html.TextBoxFor(m => m.Count, new { @class = "form-control" })</div>
+                </div>
+                <div class="form-group form-row">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-4" })
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </div>
+                </div>
+                <div class="form-group form-row justify-content-center">
+                    <input type="submit" value="Buy" class="col-md-8 btn btn-success" />
+                </div>
+            }
+        </section>
+    }
+    else
+    {
+        <div class="container">
+            <h1 class="row justify-content-center">You bought this product.</h1>
+            @Html.ActionLink("Return Home", "Index", "Home", new { @class = "row justify-content-center text-decoration-none" })
+        </div>
+    }
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

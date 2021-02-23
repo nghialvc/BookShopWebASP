@@ -1,0 +1,107 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Tables";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<div class="container-fluid card form-group">
+    <div class="row justify-content-center">
+        @using (@Html.BeginForm("ViewTable", "Admin", new { @Page = ViewBag.Page, @TableName = ViewBag.TableName, @ModelId = ViewBag.ModelId }, FormMethod.Post, new { role = "form", @class = "container-fluid" }))
+        {
+            @Html.AntiForgeryToken()
+            <h2 class="text-dark text-center">@ViewBag.TableName</h2>
+            <hr />
+            <input type="hidden" id="Method" name="Method" value="Add" />
+            foreach (System.Data.DataColumn item in Model.Columns)
+            {
+                if (item.ColumnName == "Id")
+                {
+                    if (ViewBag.ModelId != null)
+                    {
+                        <div class="form-row form-group">
+                            <h6 class="col-md-4">@item.ColumnName</h6>
+                            <h6 class="col-md-8 form-control valid">@Model.Rows[0][item.ColumnName].ToString()</h6>
+                        </div>
+                    }
+                    continue;
+                }
+                <div class="form-row form-group">
+                    <h6 class="col-md-4">@item.ColumnName</h6>
+                    @if (ViewBag.ModelId != null)
+                    {
+                        <input type="text" id="@item.ColumnName" name="@item.ColumnName" class="col-md-8 form-control valid" value="@Model.Rows[0][item.ColumnName].ToString()" />
+                    }
+                    else
+                    {
+                        <input type="text" id="@item.ColumnName" name="@item.ColumnName" class="col-md-8 form-control valid" />
+                    }
+                </div>
+            }
+            <div class="card-header row justify-content-center">
+                <div class="form-group justify-content-center col-3">
+                    <input type="submit" id="Add" value="Add" class="col-md-8 btn btn-success" />
+                </div>
+                @if (ViewBag.ModelId != null)
+                {
+                    <div class="form-group justify-content-center col-3">
+                        <input type="submit" id="Update" value="Update" class="col-md-8 btn btn-success" />
+                    </div>
+                    <div class="form-group justify-content-center col-3">
+                        <input type="submit" id="Delete" value="Delete" class="col-md-8 btn btn-success" />
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
+@if (ViewBag.ModelId == null)
+{
+    foreach (System.Data.DataRow item in Model.Rows)
+    {
+        <div class="card shadow-sm form-group">
+            <div class="card-body">
+                @foreach (System.Data.DataColumn property in Model.Columns)
+                {
+                    <div><h6 class="text-dark d-inline-block">@property.ColumnName :</h6> <h6 class="text-primary d-inline-block">@item[property.ColumnName]</h6></div>
+                }
+            </div>
+            <div class="container-fluid">
+                <a class="form-group col-md-4 btn btn-success" href="@Url.Action("ViewTable", "Admin", new { Page = 1, TableName = ViewBag.TableName, ModelId = item["Id"].ToString() })">View</a>
+            </div>
+        </div>
+    }
+    <div class="form-row justify-content-center">
+        @if ((int)ViewBag.Page > 1)
+        {
+            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = 1, TableName = ViewBag.TableName })">&laquo;</a>
+        }
+        @if ((int)ViewBag.MaxPage > 0)
+        {
+            for (int i = ((int)ViewBag.Page > 1 ? (int)ViewBag.Page - 1 : 1); i <= ((int)ViewBag.Page < (int)ViewBag.MaxPage ? (int)ViewBag.Page + 1 : (int)ViewBag.Page); i++)
+            {
+                <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = i, TableName = ViewBag.TableName })">@i</a>
+            }
+        }
+        @if ((int)ViewBag.Page < (int)ViewBag.MaxPage)
+        {
+            <a class="rounded-circle btn btn-info" style="margin:2px;" href="@Url.Action("ViewTable", "Admin", new { Page = @ViewBag.MaxPage, TableName = ViewBag.TableName })">&raquo;</a>
+        }
+    </div>
+
+}
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $("#Add").click(function () {
+                $("#Method").val("Add");
+            });
+            $("#Update").click(function () {
+                $("#Method").val("Update");
+            });
+            $("#Delete").click(function () {
+                $("#Method").val("Delete");
+            });
+        });
+    </script>
+}
